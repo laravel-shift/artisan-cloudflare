@@ -5,7 +5,6 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/sebdesign/artisan-cloudflare/tests.yml?branch=master&style=flat-square)](https://github.com/sebdesign/artisan-cloudflare/actions)
 [![Quality Score](https://img.shields.io/scrutinizer/g/sebdesign/artisan-cloudflare.svg?style=flat-square)](https://scrutinizer-ci.com/g/sebdesign/artisan-cloudflare)
 [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/sebdesign/artisan-cloudflare.svg?style=flat-square)](https://scrutinizer-ci.com/g/sebdesign/artisan-cloudflare)
-[![StyleCI](https://styleci.io/repos/74228812/shield?style=flat-square)](https://styleci.io/repos/74228812)
 
 Laravel artisan commands for interacting with the CloudFlare API.
 

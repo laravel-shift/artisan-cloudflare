@@ -11,7 +11,7 @@ class PurgeCommandTest extends TestCase
     /**
      * Setup the test environment.
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -323,7 +323,6 @@ class PurgeCommandTest extends TestCase
             ->dontSeeInConsole('images.example.com')
             ->withSuccessCode();
     }
-
 
     #[Test]
     public function it_accepts_a_zone_with_files_and_files_and_tags(): void

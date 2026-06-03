@@ -11,10 +11,8 @@ class BlockIpCommandTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
