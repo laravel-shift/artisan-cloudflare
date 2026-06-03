@@ -25,7 +25,7 @@ jobs:
             phpunit: ^9.3
           - laravel: 9.*
             testbench: ^7.0
-            phpunit: ^10.5
+            phpunit: ^9.5.10
           - laravel: 10.*
             testbench: ^8.0
             phpunit: ^10.5
@@ -94,7 +94,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -118,7 +118,7 @@ jobs:
           echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: $p{{ matrix.php }}-l{{ matrix.laravel }}-composer-${{ hashFiles('**/composer.json') }}
@@ -127,7 +127,8 @@ jobs:
       - name: Install dependencies
         run: |
           composer config --no-plugins allow-plugins.kylekatarnls/update-helper true
-          composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" "phpunit/phpunit:${{ matrix.phpunit }}" --no-interaction --no-update
+          composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" --no-interaction --no-update
+          composer require "orchestra/testbench:${{ matrix.testbench }}" "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
