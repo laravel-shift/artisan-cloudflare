@@ -3,6 +3,7 @@
 namespace Sebdesign\ArtisanCloudflare\Test;
 
 use Illuminate\Support\Collection;
+use PHPUnit\Framework\Attributes\Test;
 use Sebdesign\ArtisanCloudflare\Client;
 use Sebdesign\ArtisanCloudflare\Zone;
 
@@ -20,9 +21,7 @@ class ClientTest extends TestCase
         $this->mockClient();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_purges_a_zone_with_success(): void
     {
         // Arrange
@@ -45,9 +44,7 @@ class ClientTest extends TestCase
         $this->assertEquals(new Zone(['success' => true]), $results->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_blocks_ip_address_with_success(): void
     {
         // Arrange
@@ -70,9 +67,7 @@ class ClientTest extends TestCase
         $this->assertEquals(new Zone(['success' => true]), $results->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_handles_client_errors(): void
     {
         // Arrange
@@ -98,9 +93,7 @@ class ClientTest extends TestCase
         ]), $results->get('foo'));
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function it_handles_server_errors(): void
     {
         // Arrange
