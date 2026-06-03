@@ -16,12 +16,16 @@ jobs:
         include:
           - laravel: ^6.0
             testbench: ^4.0
+            phpunit: ^9.3
           - laravel: ^7.0
             testbench: ^5.0
+            phpunit: ^9.3
           - laravel: ^8.0
             testbench: ^6.0
+            phpunit: ^9.3
           - laravel: ^9.0
             testbench: ^7.0
+            phpunit: ^10.5
           - laravel: ^10.0
             testbench: ^8.0
           - laravel: ^11.0
@@ -111,7 +115,7 @@ jobs:
       - name: Install dependencies
         run: |
           composer config --no-plugins allow-plugins.kylekatarnls/update-helper true
-          composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
+          composer require "illuminate/console:${{ matrix.laravel }}" "illuminate/support:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" ${{ matrix.phpunit && format('"phpunit/phpunit:{0}"', matrix.phpunit) || '' }} --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests

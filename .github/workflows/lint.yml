@@ -19,7 +19,9 @@ jobs:
           tools: composer:v2
 
       - name: Install dependencies
-        run: composer update --prefer-dist --no-interaction --no-progress
+        run: |
+          composer update --prefer-dist --no-interaction --no-progress
+          composer require --dev laravel/pint --no-interaction --no-progress
 
       - name: Lint with Pint
         run: vendor/bin/pint --test
